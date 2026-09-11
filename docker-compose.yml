@@ -1,0 +1,36 @@
+services:
+
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: torrent
+      MYSQL_USER: torrent
+      MYSQL_PASSWORD: torrent
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: torrent
+      PMA_PASSWORD: torrent
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:
