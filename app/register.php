@@ -1,32 +1,42 @@
 <?php
 
 require_once __DIR__ . '/incs/db.php';
+require_once __DIR__ . '/incs/functions.php';
+
+session_start();
+
+if (isset($_SESSION['user'])) {
+    echo "Вы уже вошли!";
+} else {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") { // В Пост обязателен метод сервер
 
 
+        $data = [
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { // В Пост обязателен метод сервер
+                'name' => $_POST['name'],
+                'email' => $_POST['email'],
+                'password' => $_POST['password'],
 
-$name = $_POST['name']; // инициализация переменной методом post
-$email = $_POST['email']; // инициализация переменной методом post
-$password = $_POST['password']; // инициализация переменной методом post
+        ];
 
-//добавление нового пользователя в базу для формы
-    $stmt = $db->prepare(" 
-            INSERT INTO users (name, email, password)
-            VALUES (?,?,?)
-    ");
-
-    if ($stmt->execute([$name, $email, $password]))
-
-        echo "Пользователь добавлен";
-
+        if (register($data))
+        {
+            redirect ("login.php");
+        }
+        else {
+            echo "Такой email уже существует";
+        }
+    }
 }
+
+
+
 //добавление нового пользователя в базу для формы
 
 
 require_once __DIR__ . '/templates/header.php';
 ?>
-
+<?php if (!isset($_SESSION['user'])): ?>
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">
 
@@ -85,6 +95,19 @@ require_once __DIR__ . '/templates/header.php';
 
         </div>
     </div>
+
+<?php endif; ?>
+
+<?php if (isset($_SESSION['user'])): ?>
+
+    <div class="alert alert-success text-center">
+        Вы уже вошли как
+        <strong><?= htmlspecialchars($_SESSION['user']) ?></strong>
+    </div>
+
+<?php else: ?>
+
+<?php endif; ?>
 
 <?php
 

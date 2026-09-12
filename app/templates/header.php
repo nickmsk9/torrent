@@ -285,17 +285,47 @@ require_once __DIR__ . '/../incs/lang.php';
 
                 </ul>
 
-                <div class="header-actions">
+                <?php if (isset($_SESSION['user'])): ?>
 
-                    <a href="/login.php" class="login-link">
-                        Войти
-                    </a>
+                    <div class="header-actions">
 
-                    <a href="/register.php" class="register-link">
-                        Регистрация
-                    </a>
+                        <a href="/userdetails.php" class="login-link">
+                                Мой профиль
+                        </a>
 
-                </div>
+
+                    </div>
+
+                    <div class="header-actions">
+
+                        <strong><?= htmlspecialchars($_SESSION['user']) ?></strong>
+                        <a href="/logout.php" class="nav-link">
+                            Выйти
+                        </a>
+
+
+                    </div>
+
+                <?php else: ?>
+
+                    <div class="header-actions">
+
+                        <a href="/login.php" class="login-link">
+                            Войти
+                        </a>
+
+                        <a href="/register.php" class="register-link">
+                            Регистрация
+                        </a>
+
+                    </div>
+
+                <?php endif; ?>
+
+
+
+
+
 
             </div>
 
