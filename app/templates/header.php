@@ -288,6 +288,9 @@ require_once __DIR__ . '/../incs/lang.php';
                 <?php if (isset($_SESSION['user'])): ?>
 
                     <div class="header-actions">
+                        <a href="/add_torrent.php" class="login-link">
+                            Добавить раздачу
+                        </a>
 
                         <a href="/userdetails.php" class="login-link">
                                 Мой профиль
