@@ -60,9 +60,33 @@ function login (array $data) : bool
 
 //Функция Логина
 
+function getUsers () : array
+{
+    global $db;
+    $stmt = $db->prepare("SELECT id, name, email, created_at FROM users");
+    $stmt->execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $users;
+}
 
+function dump($data)
+{
+    echo "<pre>";
+    print_r($data);
+    echo "<pre>";
+}
 
+function getUserById ($id)
+{
+    global $db;
+    $stmt = $db->prepare("SELECT id, name, email, created_at FROM users WHERE id = :id");
+    $stmt->execute([
+        'id' => $id
+    ]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+return $user;
+}
 
 
 
