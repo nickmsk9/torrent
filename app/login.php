@@ -7,7 +7,6 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
-
 $data = [
     'email' => $_POST['email'],
     'password' => $_POST['password'],
@@ -15,6 +14,10 @@ $data = [
 
 if (login($data)) {
     $_SESSION['user'] = $data['email'];
+    $remember = isset($_POST['remember']);
+    if ($remember) {
+        setcookie('remember_user', $data['email'], time() + 3600);
+    }
     redirect('index.php');
 } else {
     echo "Неверный email или пароль";
@@ -69,6 +72,19 @@ require_once __DIR__ . '/templates/header.php';
                     class="form-control form-control-lg"
                     placeholder="Введите пароль"
                 >
+            </div>
+
+            <div class="form-check mb-4">
+                <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="remember"
+                        id="remember"
+                >
+
+                <label class="form-check-label" for="remember">
+                    Запомнить меня
+                </label>
             </div>
 
             <button
