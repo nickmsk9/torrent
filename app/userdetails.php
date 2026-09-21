@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/incs/db.php';
+require_once __DIR__ . '/incs/config.php';
 require_once __DIR__ . '/incs/functions.php';
 
 session_start();
@@ -24,55 +25,109 @@ require_once __DIR__ . '/templates/header.php';
 
 ?>
 
-    <div class="row justify-content-center">
-        <div class="col-md-7 col-lg-6">
+<div class="container py-4">
 
-            <h1 class="h3 fw-bold mb-2">
-                Профиль
+    <!-- Верхний блок профиля -->
+    <div class="card border-0 shadow-sm mb-4">
+
+        <div class="card-body p-4">
+
+            <h1 class="h3 mb-1">
+                <?= htmlspecialchars($user['name']) ?>
             </h1>
 
-            <p class="text-secondary mb-4">
-                Информация о вашем аккаунте
-            </p>
-
-            <div class="card border-0 shadow-sm">
-                <div class="card-body p-4">
-
-                    <div class="mb-4">
-                        <label class="form-label text-secondary">
-                            Имя
-                        </label>
-
-                        <div class="form-control form-control-lg bg-light">
-                            <?= htmlspecialchars($user['name']) ?>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label text-secondary">
-                            Email
-                        </label>
-
-                        <div class="form-control form-control-lg bg-light">
-                            <?= htmlspecialchars($user['email']) ?>
-                        </div>
-                    </div>
-
-                    <div class="mb-0">
-                        <label class="form-label text-secondary">
-                            Дата регистрации
-                        </label>
-
-                        <div class="form-control form-control-lg bg-light">
-                            <?= htmlspecialchars($user['created_at']) ?>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="text-secondary mb-3">
+                На сайте с <?= htmlspecialchars($user['created_at']) ?>
             </div>
 
         </div>
+
     </div>
+
+
+    <!-- Информация о пользователе -->
+    <div class="card border-0 shadow-sm">
+
+        <div class="card-header bg-white py-3">
+            <h5 class="mb-0">
+                Информация о пользователе
+            </h5>
+        </div>
+
+        <div class="card-body p-4">
+
+            <div class="row mb-3">
+
+                <div class="col-md-3 text-secondary">
+                    Имя
+                </div>
+
+                <div class="col-md-9">
+                    <?= htmlspecialchars($user['name']) ?>
+                </div>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="row mb-3">
+
+                <div class="col-md-3 text-secondary">
+                    Email
+                </div>
+
+                <div class="col-md-9">
+                    <?= htmlspecialchars($user['email']) ?>
+                </div>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="row mb-3">
+
+                <div class="col-md-3 text-secondary">
+                    Роль
+                </div>
+
+               <div class="col-md-9">
+
+    <?php
+
+
+echo $roles[$user['role']];
+
+?>
+
+</div>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="row">
+
+                <div class="col-md-3 text-secondary">
+                    Дата регистрации
+                </div>
+
+                <div class="col-md-9">
+                    <?= htmlspecialchars($user['created_at']) ?>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <?php
 
