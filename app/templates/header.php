@@ -41,18 +41,17 @@ require_once __DIR__ . '/../incs/lang.php';
     <div class="container header-inner">
 
 
-        <!-- Логотип -->
+       <!-- Логотип -->
 
-        <a href="<?= $baseUrl ?>/index.php" class="logo">
+<a href="<?= $baseUrl ?>/index.php" class="logo">
 
-            <span class="logo-mark">
-                T
-            </span>
+    <img
+        src="<?= $baseUrl ?>/pic/logo.png"
+        alt="Torrent"
+        style="height: 45px; width: auto;"
+    >
 
-            Torrent
-
-        </a>
-
+</a>
 
         <!-- Главное меню -->
 
