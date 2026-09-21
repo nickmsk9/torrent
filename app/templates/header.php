@@ -18,7 +18,7 @@ require_once __DIR__ . '/../incs/lang.php';
         content="width=device-width, initial-scale=1"
     >
 
-    <title>Torrent</title>
+    <title><?= $titlemain ?></title>
 
     <link
     rel="stylesheet"

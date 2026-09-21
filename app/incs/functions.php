@@ -88,6 +88,24 @@ function getUserById ($id)
 return $user;
 }
 
+function getUserByEmail($email)
+{
+    global $db;
+
+    $stmt = $db->prepare("
+        SELECT *
+        FROM users
+        WHERE email = :email
+    ");
+
+    $stmt->execute([
+        'email' => $email
+    ]);
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $user;
+}
 
 
 
