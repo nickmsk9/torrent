@@ -66,17 +66,7 @@ require_once __DIR__ . '/../incs/lang.php';
                 Торренты
             </a>
 
-            <a href="<?= $baseUrl ?>/category.php">
-                Категории
-            </a>
-
-            <a href="<?= $baseUrl ?>/users.php">
-                Пользователи
-            </a>
-
-            <a href="<?= $baseUrl ?>/rules.php">
-                Правила
-            </a>
+            
 
         </nav>
 
@@ -96,11 +86,6 @@ require_once __DIR__ . '/../incs/lang.php';
                 <a href="<?= $baseUrl ?>/userdetails.php">
                     Мой профиль
                 </a>
-
-
-                <span class="username">
-                    <?= htmlspecialchars($_SESSION['user']) ?>
-                </span>
 
 
                 <a href="<?= $baseUrl ?>/logout.php">
