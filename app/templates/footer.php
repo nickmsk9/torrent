@@ -36,20 +36,17 @@
                     Главная
                 </a>
 
-                <a href="<?= $baseUrl ?>/torrents.php">
-                    Торренты
-                </a>
-
-                <a href="<?= $baseUrl ?>/category.php">
-                    Категории
-                </a>
-
+    
                 <a href="<?= $baseUrl ?>/users.php">
                     Пользователи
                 </a>
 
                 <a href="<?= $baseUrl ?>/rules.php">
                     Правила
+                </a>
+
+                <a href="<?= $baseUrl ?>/staff.php">
+                    Администрация
                 </a>
 
             </nav>

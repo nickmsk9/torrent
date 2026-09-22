@@ -19,6 +19,7 @@ require_once __DIR__ . '/../incs/lang.php';
     >
 
     <title><?= $titlemain ?></title>
+    <link rel="shortcut icon" href="/pic/favicon.ico" type="image/x-icon" />
 
     <link
     rel="stylesheet"

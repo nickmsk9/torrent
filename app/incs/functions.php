@@ -108,6 +108,23 @@ function getUserByEmail($email)
 }
 
 
+function getStaff()
+{
+    global $db;
+
+    $stmt = $db->prepare("
+        SELECT id, name, email, role, created_at
+        FROM users
+        WHERE role = 3
+    ");
+
+    $stmt->execute();
+
+    $staff = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $staff;
+}
+
 
 
 
