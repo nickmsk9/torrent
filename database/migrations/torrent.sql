@@ -84,7 +84,7 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT для таблицы `torrents`
+-- AUTO_INCREMENT для таблицы `torrents`/
 --
 ALTER TABLE `torrents`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
