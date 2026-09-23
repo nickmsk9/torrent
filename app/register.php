@@ -37,65 +37,105 @@ if (isset($_SESSION['user'])) {
 require_once __DIR__ . '/templates/header.php';
 ?>
 <?php if (!isset($_SESSION['user'])): ?>
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
 
-            <h1 class="h3 fw-bold mb-2">Регистрация</h1>
-            <p class="text-secondary mb-4">
-                Создайте аккаунт в Torrent
-            </p>
+    <div class="container py-4">
 
-            <form method="post">
+        <div class="row justify-content-center">
 
-                <div class="mb-3">
-                    <label class="form-label">Имя</label>
-                    <input
-                        type="text"
-                        name="name"
-                        class="form-control form-control-lg"
-                        placeholder="Ваше имя"
-                    >
+            <div class="col-md-7 col-lg-5">
+
+                <div class="card border-0 shadow-sm">
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="mb-4">
+
+                            <h1 class="h3 fw-bold mb-2">
+                                Регистрация
+                            </h1>
+
+                            <p class="text-secondary mb-0">
+                                Создайте аккаунт в Torrent
+                            </p>
+
+                        </div>
+
+                        <form method="post">
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-bold">
+                                    Имя
+                                </label>
+
+                                <input
+                                        type="text"
+                                        name="name"
+                                        class="form-control"
+                                        placeholder="Ваше имя"
+                                >
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label class="form-label fw-bold">
+                                    Email
+                                </label>
+
+                                <input
+                                        type="email"
+                                        name="email"
+                                        class="form-control"
+                                        placeholder="name@example.com"
+                                >
+
+                            </div>
+
+                            <div class="mb-4">
+
+                                <label class="form-label fw-bold">
+                                    Пароль
+                                </label>
+
+                                <input
+                                        type="password"
+                                        name="password"
+                                        class="form-control"
+                                        placeholder="Введите пароль"
+                                >
+
+                            </div>
+
+                            <button
+                                    type="submit"
+                                    class="btn btn-dark w-100"
+                            >
+                                Зарегистрироваться
+                            </button>
+
+                        </form>
+
+                        <p class="text-secondary text-center small mt-4 mb-0">
+                            Уже есть аккаунт?
+
+                            <a
+                                    href="<?= $baseUrl ?>/login.php"
+                                    class="text-dark fw-semibold"
+                            >
+                                Войти
+                            </a>
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        class="form-control form-control-lg"
-                        placeholder="name@example.com"
-                    >
-                </div>
-
-                <div class="mb-4">
-                    <label class="form-label">Пароль</label>
-                    <input
-                        type="password"
-                        name="password"
-                        class="form-control form-control-lg"
-                        placeholder="Введите пароль"
-                    >
-                </div>
-
-                <button
-                    type="submit"
-                    class="btn btn-dark btn-lg w-100"
-                >
-                    Зарегистрироваться
-                </button>
-
-            </form>
-
-            <p class="text-secondary text-center small mt-4 mb-0">
-                Уже есть аккаунт?
-                <a href="/login.php" class="text-dark fw-semibold">
-                    Войти
-                </a>
-            </p>
+            </div>
 
         </div>
-    </div>
 
+    </div>
 <?php endif; ?>
 
 <?php if (isset($_SESSION['user'])): ?>

@@ -1314,3 +1314,100 @@ textarea.textarea {
         padding: 30px;
     }
 }
+/* =========================
+   PROFILE MENU
+========================= */
+
+.profile-menu {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.profile-menu-button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 0 15px;
+
+    color: #333;
+    text-decoration: none;
+}
+
+.profile-menu-button:hover {
+    background: #f5f5f5;
+    color: #333;
+    text-decoration: none;
+}
+
+.profile-name {
+    max-width: 180px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.profile-arrow {
+    font-size: 12px;
+    color: #888;
+}
+
+
+/* Выпадающее меню */
+
+.profile-dropdown {
+    position: absolute;
+
+    top: 100%;
+    right: 0;
+
+    width: 190px;
+
+    display: none;
+
+    background: rgba(35, 35, 35, 0.96);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+
+    z-index: 1000;
+}
+
+
+/* Показываем при наведении */
+
+.profile-menu:hover .profile-dropdown {
+    display: block;
+}
+
+
+/* Пункты */
+
+.profile-dropdown a {
+    display: block;
+
+    padding: 10px 15px;
+
+    color: #ddd;
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.profile-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #fff;
+
+    text-decoration: none;
+}
+
+
+/* Выход отделяем */
+
+.profile-dropdown .profile-logout {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}

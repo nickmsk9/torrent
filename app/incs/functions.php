@@ -69,12 +69,16 @@ function getUsers () : array
     return $users;
 }
 
+// просто симпатичный вывод для функции
 function dump($data)
 {
     echo "<pre>";
     print_r($data);
     echo "<pre>";
 }
+
+// просто симпатичный вывод для функции
+
 
 function getUserById ($id)
 {

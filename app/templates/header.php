@@ -3,7 +3,6 @@
 require_once __DIR__ . '/../incs/config.php';
 require_once __DIR__ . '/../incs/lang.php';
 
-
 ?>
 
 <!doctype html>
@@ -14,25 +13,29 @@ require_once __DIR__ . '/../incs/lang.php';
     <meta charset="UTF-8">
 
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
+            name="viewport"
+            content="width=device-width, initial-scale=1"
     >
 
     <title><?= $titlemain ?></title>
-    <link rel="shortcut icon" href="/pic/favicon.ico" type="image/x-icon" />
 
     <link
-    rel="stylesheet"
-    href="<?= $baseUrl ?>/templates/font.css"
->
+            rel="shortcut icon"
+            href="/pic/favicon.ico"
+            type="image/x-icon"
+    >
 
-   <link
-    rel="stylesheet"
-    href="<?= $baseUrl ?>/templates/app.css"
->
+    <link
+            rel="stylesheet"
+            href="<?= $baseUrl ?>/templates/font.css"
+    >
+
+    <link
+            rel="stylesheet"
+            href="<?= $baseUrl ?>/templates/app.css"
+    >
 
 </head>
-
 
 <body>
 
@@ -42,55 +45,79 @@ require_once __DIR__ . '/../incs/lang.php';
     <div class="container header-inner">
 
 
-       <!-- Логотип -->
+        <!-- Логотип -->
 
-<a href="<?= $baseUrl ?>/index.php" class="logo">
+        <a href="<?= $baseUrl ?>/index.php" class="logo">
 
-    <img
-        src="<?= $baseUrl ?>/pic/logo.png"
-        alt="Torrent"
-        style="height: 45px; width: auto;"
-    >
+            <img
+                    src="<?= $baseUrl ?>/pic/logo.png"
+                    alt="Torrent"
+                    height="40"
+            >
 
-</a>
+        </a>
+
 
         <!-- Главное меню -->
 
         <nav class="main-nav">
 
-            <a href="<?= $baseUrl ?>/index.php">
-                <?= $lang['home'] ?>
-            </a>
-
             <a href="<?= $baseUrl ?>/torrents.php">
                 Торренты
             </a>
 
-            
-
         </nav>
 
 
-        <!-- Пользователь -->
+        <!-- Правая часть -->
 
         <div class="user-nav">
 
             <?php if (isset($_SESSION['user'])): ?>
 
 
-                <a href="<?= $baseUrl ?>/add_torrent.php">
-                    Добавить раздачу
-                </a>
+                <div class="profile-menu">
+
+                    <a
+                            href="<?= $baseUrl ?>/userdetails.php"
+                            class="profile-menu-button"
+                    >
+
+                        <span class="profile-name">
+                            <?= htmlspecialchars($_SESSION['user']) ?>
+                        </span>
+
+                        <span class="profile-arrow">
+                            ▾
+                        </span>
+
+                    </a>
 
 
-                <a href="<?= $baseUrl ?>/userdetails.php">
-                    Мой профиль
-                </a>
+                    <div class="profile-dropdown">
 
+                        <a href="<?= $baseUrl ?>/settings.php">
+                            Настройки
+                        </a>
 
-                <a href="<?= $baseUrl ?>/logout.php">
-                    Выйти
-                </a>
+                        <a href="<?= $baseUrl ?>/userdetails.php">
+                            Профиль
+                        </a>
+
+                        <a href="<?= $baseUrl ?>/add_torrent.php">
+                            Добавить раздачу
+                        </a>
+
+                        <a
+                                href="<?= $baseUrl ?>/logout.php"
+                                class="profile-logout"
+                        >
+                            Выход
+                        </a>
+
+                    </div>
+
+                </div>
 
 
             <?php else: ?>
@@ -100,8 +127,10 @@ require_once __DIR__ . '/../incs/lang.php';
                     Войти
                 </a>
 
-
-                <a href="<?= $baseUrl ?>/register.php" class="btn btn-primary">
+                <a
+                        href="<?= $baseUrl ?>/register.php"
+                        class="btn btn-primary"
+                >
                     Регистрация
                 </a>
 
